@@ -51,7 +51,7 @@ RSpec.describe Carnival do
     expect(@carnival1.total_revenue).to eq(15)
   end
 
-  xit "can determin the most popular ride" do
+  it "can determin the most popular ride" do
     @carnival1.add_ride(@ride1)
     @carnival1.add_ride(@ride2)
     @carnival1.add_ride(@ride3)
