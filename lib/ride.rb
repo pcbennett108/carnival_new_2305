@@ -23,10 +23,6 @@ class Ride
     end
   end
 
-  def preference?(rider)
-    rider.preferences.include?(@excitement)
-  end
-
   def collect_fee(rider)
     rider.buy_ride(@admission_fee)
     @total_revenue += @admission_fee
