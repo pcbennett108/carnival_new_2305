@@ -26,6 +26,16 @@ class Carnival
     most_popular.first
   end
 
+  def most_profitable_ride
+    most_profitable_ride = Hash.new(0)
+    @rides.each do |ride|
+      current_ride_revenue = ride.total_revenue
+      most_profitable_ride[ride] = current_ride_revenue
+    end
+    most_profitable = most_profitable_ride.max_by {|ride, value| value}
+    most_profitable.first
+  end
+
   def total_revenue
     total_revenue = 0
     @rides.each do |ride|
@@ -61,4 +71,4 @@ end
 # ride3.board_rider(visitor2)
 # ride3.board_rider(visitor3)
 
-# carnival1.most_popular_ride
+# p carnival1.most_profitable_ride
