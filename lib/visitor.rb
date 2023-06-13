@@ -17,4 +17,8 @@ class Visitor
   def tall_enough?(requirement)
     @height >= requirement ? true : false
   end
+
+  def buy_ride(price)
+    @spending_money -= price
+  end
 end

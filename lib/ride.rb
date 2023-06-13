@@ -16,11 +16,30 @@ class Ride
   end
 
   def board_rider(rider)
+    if rider.tall_enough?(@min_height) &&
+      rider.preferences.include?(@excitement)
+        collect_fee(rider)
+        log_ride(rider)
+    end
+  end
+
+  def preference?(rider)
+    rider.preferences.include?(@excitement)
+  end
+
+  def collect_fee(rider)
+    rider.buy_ride(@admission_fee)
+    @total_revenue += @admission_fee
+  end
+  
+  def log_ride(rider)
     if @rider_log[rider].nil?
         @rider_log[rider] = 1
     else
       @rider_log[rider] += 1
     end
   end
+
+
 
 end
